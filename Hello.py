@@ -33,7 +33,7 @@ def run():
     #     title = parsed_query_params['title'][0]
     #     st.title(title)
     # else:
-    st.title(url)
+    st.title(url, query_params, parsed_query_params)
     st.write("# Welcome to Streamlit! 👋 hi")
 
     st.sidebar.success("Select a demo above.")
