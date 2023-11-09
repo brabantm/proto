@@ -26,14 +26,14 @@ def run():
         # Get the URL query parameters
     url = st.get_option("browser.serverAddress")
     query_params = urllib.parse.urlparse(url).query
-    parsed_query_params = urllib.parse.parse_qs(query_params)
+    parsed_query_params = st.experimental_get_query_params()
 
     # # Set the page title based on the 'title' URL parameter
-    # if 'title' in parsed_query_params:
-    #     title = parsed_query_params['title'][0]
-    #     st.title(title)
-    # else:
-    st.title(url, query_params, parsed_query_params)
+    if 'title' in parsed_query_params:
+        title = parsed_query_params['title'][0]
+        st.title(title)
+    else:
+        st.title("hello")
     st.write("# Welcome to Streamlit! 👋 hi")
 
     st.sidebar.success("Select a demo above.")
